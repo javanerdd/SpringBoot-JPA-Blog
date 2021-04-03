@@ -4,14 +4,14 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-	<form action="/action_page.php">
+	<form action="/blog/api/user/login">
 		<div class="form-group">
-			<label for="username">Username</label> 
+			<label for="username">유저네임</label> 
 			<input type="text" class="form-control" placeholder="Enter Username" id="username">
 		</div>
 
 		<div class="form-group">
-			<label for="password">Password</label> 
+			<label for="password">패스워드</label> 
 			<input type="password" class="form-control" placeholder="Enter password" id="password">
 		</div>
 		
