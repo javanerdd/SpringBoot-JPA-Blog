@@ -3,6 +3,9 @@ let index={
 		$("#btn-save").on("click",()=>{ //function(){} , ()=>{}를 사용하는이유는 this를 바인딩하기 위해서 사용
 			this.save();
 		});
+		$("#btn-login").on("click",()=>{ 
+			this.login();
+		});
 	},
 	
 	save: function(){
@@ -24,8 +27,8 @@ let index={
 		//ajax가 통신을 성공하고 서버가 json을 리턴해주면 자동으로 자바 오브젝트로 변환해줌
 		$.ajax({
 			//회원가입 수행요청
-			type: "post",
-			url: "/blog/api/user",
+			type: "POST",
+			url: "/api/user",
 			data: JSON.stringify(data), // http body데이터
 			contentType:"application/json; charset=utf-8", //body 데이터가 어떤 타입인지(MIME)
 			dataType:"json" 
@@ -33,12 +36,44 @@ let index={
 
 		}).done(function(resp){
 			alert("회원가입이 완료 되었습니다.");
-			location.href="/blog";
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error))
+		}); 
+		
+	},
+	
+	login: function(){
+		//alter('user의 save함수 호출됨');
+		let data = {
+			username: $("#username").val(),
+			password: $("#password").val()
+		};
+ 
+		$.ajax({
+			type:"POST",
+			url:"/api/user/login",
+			data: JSON.stringify(data), // http body데이터
+			contentType:"application/json; charset=utf-8", //body 데이터가 어떤 타입인지(MIME)
+			dataType:"json" 
+
+		}).done(function(resp){
+			alert("로그인 완료 되었습니다.");
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error))
 		}); 
 		
 	}
+	
 }
-
 index.init();
+
+
+
+
+
+
+
+
+

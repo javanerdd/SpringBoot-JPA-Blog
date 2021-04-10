@@ -4,22 +4,27 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-	<form action="/blog/api/user/login">
+	<form>
 		<div class="form-group">
 			<label for="username">유저네임</label> 
 			<input type="text" class="form-control" placeholder="Enter Username" id="username">
 		</div>
 
 		<div class="form-group">
-			<label for="password">패스워드</label> 
+			<label for="username">비밀번호</label> 
 			<input type="password" class="form-control" placeholder="Enter password" id="password">
 		</div>
+
+
+		<div class="form-group form-check">
+			<label class="form-check-label"><input class="form-check-input" type="checkbox">remember me</label>
+		</div>
 		
-		
-		<button type="submit" class="btn btn-primary">로그인완료</button>
 	</form>
+		<button id="btn-login" class="btn btn-primary">로그인</button>
 </div>
 
+<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>
 
 
